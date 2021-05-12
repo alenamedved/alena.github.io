@@ -41,7 +41,7 @@ Clone this repository so that the code is available on your local machine:
 
 Navigate to the directory you just cloned in your terminal:
 
-    cd intro-to-programming
+    cd intro-to-programming-eclipse
 
 Create a new local branch to work on separate from the `main` branch:
 
