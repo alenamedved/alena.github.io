@@ -15,7 +15,14 @@ if(winnieDOB.getMonth() > thisMonth && thisYear == '2021') {
     ageWinnie = ((thisYear - winnieDOB.getFullYear()) * 12) + (thisMonth - winnieDOB.getMonth());
 }
 
-const winnieSkills = ['I can jump very high', `I always know what time it's especially if it's time to eat`, `And I know when it's time to go outside for a walk`, `I'm a experimenter: I'm always ready to try a new stuff`, `I train my Mom very well`, `Ok, I know how to lie down, sit and stay and I come when I'm called` ];
+const winnieSkills = [
+    'I can jump very high', 
+    `I always know what time it's especially if it's time to eat`, 
+    `And I know when it's time to go outside for a walk`, 
+    `I'm an experimenter: I'm always ready to try a new stuff`, 
+    `I train my Mom very well`, 
+    `Ok, I know how to lie down, sit and stay and I come when I'm called` 
+];
 const winnieSkillsSection = document.getElementById('winnieskills');
 const winnieSkillsList = winnieSkillsSection.querySelector('ul');
 for(let i = 0; i < winnieSkills.length; i++) {
@@ -23,8 +30,6 @@ for(let i = 0; i < winnieSkills.length; i++) {
     skill.innerText = winnieSkills[i];
     winnieSkillsList.appendChild(skill);
 }
-
-
 
 const agesection = document.getElementById('about');
 let ageparagraph = document.createElement('p');
