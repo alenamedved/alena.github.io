@@ -7,7 +7,7 @@ const copyright = document.createElement('p');
 copyright.innerHTML = `&copy; ${myName} ${thisYear} `
 footer.appendChild(copyright);
 
-const skills = ['JavaScript', 'HTML', 'CSS', 'Data Analysys', 'Data Management','Analitical Skills', 'Engineering', 'Reserch', ];
+const skills = ['JavaScript', 'HTML', 'CSS', 'Data Analysys', 'Data Management','Analitical Skills', 'Engineering', 'Reserch'];
 const skillsSection = document.getElementById('skills');
 const skillsList = skillsSection.querySelector('ul');
 for(let i = 0; i < skills.length; i++) {
