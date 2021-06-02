@@ -22,13 +22,13 @@ Grading for this project is less rigid, given the open-ended instructions. Make 
 
 - [Lesson 4.1: HTML Basics](instructions/section-4/lesson-4-1.md)
 - [Lesson 4.2: JavaScript and the DOM](instructions/section-4/lesson-4-2.md)
-- [Lesson 4.3: DOM Practice and Debugging](instructions/section-4/lesson-4-3.md)
+- [Lesson 4.3: HTML Forms and DOM Practice](instructions/section-4/lesson-4-3.md)
 - [Lesson 4.4: CSS Basics](instructions/section-4/lesson-4-4.md)
 - [Lesson 4.5: CSS Layout](instructions/section-4/lesson-4-5.md)
 
 ### **Section 5:** How the Internet Works
 
-- [Lesson 5.1: How the Internet Works](instructions/section-5/lesson-5-1.md)
+- [Lesson 5.1: How the Internet Works and Debugging](instructions/section-5/lesson-5-1.md)
 
 ### **Section 6:** AJAX Basics
 
