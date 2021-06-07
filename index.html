@@ -52,8 +52,8 @@
                     <h2>Experience</h2>
                     <article>
                         <p>I used to work as a Senior Environmental Engineer at the consulting organization where I prepared and provided necessary documentations to its clients in order to comply with ecological laws and acceptable norms required by legislation.</p> 
-                        <p> Also I'd worked on different projects to help protect our environment and make it better.</p>
-                        <p>Now as a CTD student I study JavaScript, HTML and CSS and work on my first Portfolio. </p>
+                        <p>Also I'd worked on different projects to help protect our environment and make it better.</p>
+                        <p>Now as a CTD student I learn JavaScript, HTML and CSS and work on my Portfolio. </p>
                     </article>
                 </section>  
 
@@ -73,6 +73,37 @@
                     </ul>
                 </section> 
             </main>
+
+            <section id="message">
+                <fieldset>
+                    <h2>Leave a Message</h2>
+
+                    <form action="index.html" name="leave_message">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+
+                        <input type="radio" id="employer" name="employer">
+                        <label for="employer">Are you employer?</label><br>
+
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+
+                        <input type="radio" id="friend" name="friend">
+                        <label for="friend">Looking for a friend?</label><br>
+
+                        <label for="messageFromUser"></label><br>
+                        <textarea name="message" id="messageFromUser" placeholder="Type the message in here" required></textarea><br>
+                        <button type="submit">Submit</button>
+                    </form>
+                </fieldset>
+            </section>
+
+            <section id="messages">
+                <h2>Messages</h2>
+                    <ul></ul>
+
+            </section>
+
 
             <footer style="font-size: small;"> 
                 <!--  <p><small>&copy;2021 Alena The Developer, The Blog</small></p> --> 
