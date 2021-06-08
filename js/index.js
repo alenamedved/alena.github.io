@@ -92,14 +92,15 @@ messageForm.addEventListener('submit', (event) => {
     
     
     //Event Listeners for Remove, Edit and Done buttons
-    removeButton.addEventListener('click', (event) => {
+    removeButton.onclick = (event) => {
         const entry = removeButton.parentNode
         entry.remove()
-        //Make the message section gone when last item list removed
+        //messageList.removeChild(li)
+        //Make the message section gone when last list's item is removed
         if(messageList.querySelectorAll('li').length == 0) {
             messageSection.style.display = 'none' 
         }
-    })
+    }
     
     
     editButton.addEventListener('click', (event) => { 
