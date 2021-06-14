@@ -1,0 +1,95 @@
+body {
+    font-family: Saira extra condensed;
+    background-color: aliceblue;
+    text-align:center;
+    text-transform: unset;
+    font-size: 1.5rem;
+
+}
+/* #sideNav {
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 17rem;
+    height: 100vh;
+     
+} */
+.bg-primary {
+    background-color: #b7cbf7 !important;
+}
+
+element.style {
+}
+#sideNav {
+    text-align: left;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: revert;
+    width: 17rem;
+    height: 100%;
+}
+main.content {
+    text-align:left;
+    text-transform: unset;
+    margin-left: 18rem;
+    padding: 1px 16px;
+    height: 100%;
+  }
+.navbar-expand-lg {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+}
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+.fixed-top {
+    /* position: fixed; */
+    /* top: 0; */
+    /* right: 0; */
+    left: 0;
+    /* z-index: 1030; */
+}
+#sideNav .navbar-nav .nav-item .nav-link {
+    font-weight: 800;
+    letter-spacing: 0.05rem;
+    text-transform: uppercase;
+}
+nav ul li {
+    list-style: none;
+    text-transform: capitalize;
+}
+a:link {
+    color: darkblue;
+    text-decoration: none;
+  }
+a:visited {
+    color: seagreen;
+}
+a:hover {
+    text-decoration: underline;
+    color: tomato;
+    background-color: lightslategrey;
+    display: flex;
+}
+/* img:hover {
+border: 8px solid blue;
+border-radius: 8px;
+} */
+a:focus {
+    color: white;
+    background-color: orange;
+}
+.img-size {
+   width: 1rem;
+   height: 1rem;
+}

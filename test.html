@@ -7,19 +7,25 @@
         <meta name="keywords" content="HTML, CSS, JavaScript, Portfolio"/>
         <meta name="author" content="Alena Miadzvedskaya"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <!-- Google fonts-->
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Do+Hyeon&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
-        <link rel="stylesheet" href="css/index.css">
+        <link href="https://fonts.googleapis.com/css?family=Muli:400,400i,800,800i" rel="stylesheet" type="text/css" /> 
+        <!-- Core theme CSS -->
+        <link rel="stylesheet" href="css/test.css">
+        <!-- <link rel="stylesheet" href="css/test2.css"> -->
     </head>  
 
     <body>
         
-            <header>
-                <h1>Alena Miadzvedskaya</h1> 
-                
-                <img src="img/img_girl.jpg" alt="Picture" width="450" height="300" title="To be in a harmony with nature that is my dream for all of us">
-
+            <header class="sidebar">
+                <h1 class="heading mainheading">Alena Miadzvedskaya</h1> 
+                <div id="imgPersonal">
+                    <img  src="img/img_girl.jpg" alt="Picture" title="To be in a harmony with nature that is my dream for all of us">
+                 </div>
                 <div>
-                    <nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top" id="sideNav">
+                    <nav>
                         <ul>
                             <li class="nav-item"><a href="#">Home</a></li>
                             <li class="nav-item"><a href="#about">About</a></li>
@@ -32,8 +38,8 @@
             </header>
             <main class="content">
 
-                <section id="about">
-                    <h2>About</h2>
+                <section id="about" class="section">
+                    <h2 class="heading">About Me</h2>
                     <article>
                         <p>Hi!</p>
                         <p>My name is Alena. I'm from beautiful country <em>Belarus</em> and currently I'm a Code The Dream student!</p>
@@ -45,8 +51,8 @@
                 </section>
             
 
-                <section id="experience">
-                    <h2>Experience</h2>
+                <section id="experience" class="section">
+                    <h2 class="heading">Experience</h2>
                     <article>
                         <p>I used to work as a Senior Environmental Engineer at the consulting organization where I prepared and provided necessary documentations to its clients in order to comply with ecological laws and acceptable norms required by legislation.</p> 
                         <p>Also I'd worked on different projects to help protect our environment and make it better.</p>
@@ -54,61 +60,62 @@
                     </article>
                 </section>  
 
-                <section id="skills">
-                    <h2>Skills</h2>
+                <section id="skills" class="section">
+                    <h2 class="heading">Skills</h2>
                     <ul></ul>
 
 
                 </section>
 
-                <section id="connect">
-                    <h2>Connect</h2>
+                <section id="connect" class="section">
+                    <h2 class="heading">Connect</h2>
                     <ul>
                         <li><img src="img/GmailLogo.png" class="img-size" alt="gmail logo" width="16" height="10">My email: <a href="mailto:mittusik@gmail.com?subject=Hi%20;Alena!">mittusik@gmail.com</a></li>
                         <li><img src="img/gHLogo.png" class="img-size" alt="gitHub logo" width="16" height="16">GitHub link: <a href="https://github.com/alenamedved" target="_blank">https://github.com/alenamedved</a></li>
                         <li><img src="img/LinkInLogo.png" class="img-size" alt="LinkedIn logo" width="16" height="16">Find me at LinkedIn: <a href="https://www.linkedin.com/in/alena-miadzvedskaya-848313137/" target="_blank">https://www.linkedin.com/in/alena-miadzvedskaya-848313137/</a></li>
                     </ul>
                 </section> 
+            
+
+                <section id="message" class="section">
+                    <fieldset>
+                        <h2 class="heading">Leave a Message</h2>
+
+                        <form action="index.html" name="leave_message">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" required>
+
+                            <input type="radio" id="employer" name="employer">
+                            <label for="employer">Are you employer?</label><br>
+
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+
+                            <input type="radio" id="friend" name="friend">
+                            <label for="friend">Looking for a friend?</label><br>
+
+                            <label for="messageFromUser"></label><br>
+                            <textarea name="message" id="messageFromUser" placeholder="Type the message in here" required></textarea><br>
+                            <button type="submit">Submit</button>
+                        </form>
+                    </fieldset>
+                </section>
+
+                <section id="messages" class="section">
+                    <fieldset>
+                        <h2 class="heading">Messages</h2>
+                            <ul></ul>
+                    </fieldset>
+                </section>
+
+                <div id="video" >
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/lGIDR1aDVdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                </div>
+
             </main>
 
-            <section id="message">
-                <fieldset>
-                    <h2>Leave a Message</h2>
-
-                    <form action="index.html" name="leave_message">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
-
-                        <input type="radio" id="employer" name="employer">
-                        <label for="employer">Are you employer?</label><br>
-
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
-
-                        <input type="radio" id="friend" name="friend">
-                        <label for="friend">Looking for a friend?</label><br>
-
-                        <label for="messageFromUser"></label><br>
-                        <textarea name="message" id="messageFromUser" placeholder="Type the message in here" required></textarea><br>
-                        <button type="submit">Submit</button>
-                    </form>
-                </fieldset>
-            </section>
-
-            <section id="messages">
-                <fieldset>
-                    <h2>Messages</h2>
-                        <ul></ul>
-                </fieldset>
-            </section>
-
-            <div id="video" >
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/lGIDR1aDVdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
-                </iframe>
-            </div>
-
-
-            <footer style="font-size: small;"> 
+            <footer style="font-size: small;" > 
                 <!--  <p><small>&copy;2021 Alena The Developer, The Blog</small></p> --> 
             </footer>
         

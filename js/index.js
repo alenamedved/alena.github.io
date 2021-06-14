@@ -7,7 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     const messageList = messageSection.querySelector('ul')
     const skillsSection = document.getElementById('skills');
     const skillsList = skillsSection.querySelector('ul');
-
+    
+    
+    //Make message section invisible by default    
+    messageSection.style.display = 'none'
+    
     //Create variables for use
     const myName = 'Alena Miadzvedskaya';
     const today = new Date;
@@ -23,13 +27,22 @@ document.addEventListener('DOMContentLoaded', () => {
         'Engineering', 
         'Reserch'
     ];
-
-
+    
+    
+    //Function to create a button
+    function createButton(nameButton) {
+        const button = document.createElement('button')
+        button.innerText = nameButton
+        button.type = 'button'
+        return button
+    }
+    
+    
     //Add the copyright with name and year to the footer
     copyright.innerHTML = `&copy; ${myName} ${thisYear} `;
     footer.appendChild(copyright);
-
-
+    
+    
     //Fill out the Skill section with skills from the skills array. 
     for(let i = 0; i < skills.length; i++) {
         let skill = document.createElement('li');
@@ -55,19 +68,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 
-    //Make message section invisible by default    
-    messageSection.style.display = 'none'
-
-
-    //Function to create a button
-    function createButton(nameButton) {
-        const button = document.createElement('button')
-        button.innerText = nameButton
-        button.type = 'button'
-        return button
-    }
-
-
     //Working with Message Section: filling it in with messages from the users
     messageForm.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
         //Make the Done button hidden by default
         doneButton.style.visibility = 'hidden'
         
-        newMessage.innerHTML = (`<a href="mailto:${email}">${name}</a> wrote: <span><em>${messageFromUser}</em></span> `)
+        newMessage.innerHTML = (`<a href="mailto:${email}">${name}</a> wrote: <span><em>${messageFromUser}</em></span> &nbsp`)
         
         //Final appendants to the DOM: add created elements to the newMessage and append the newMessage to  the list. 
         newMessage.appendChild(removeButton)
