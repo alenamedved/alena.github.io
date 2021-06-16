@@ -98,7 +98,7 @@ document.addEventListener('DOMContentLoaded', () => {
         messageList.appendChild(newMessage)
         
         //As li element was added the message section can be visible
-        messageSection.style.display = 'initial'
+        messageSection.style.display = 'inline-block'
 
         //Resert messageForm to make it clean again and ready for new input
         event.target.reset()

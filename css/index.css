@@ -1,29 +1,109 @@
 body {
-    font-family: Saira extra condensed;
     background-color: aliceblue;
-    text-align:center;
-    text-transform: unset;
+    font-family: Saira extra condensed;
     font-size: 1.5rem;
-
 }
-/* #sideNav {
-    text-align: center;
+.section {
+    width: 100%;
+    margin-bottom: 2em;
+    padding: .2em;
+    align-content: center;
+}
+/* Side bar */
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    background-color: #97c2fa;
     position: fixed;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    width: 17rem;
-    height: 100vh;
-     
-} */
-.bg-primary {
-    background-color: #b7cbf7 !important;
+    height: 100%;
+    overflow: auto;
+    text-align: center;
+    
+  }
+/* side bar links */
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
 }
+  
+  /* hover through the links */
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  a:hover {
+    text-decoration: underline;
+    color: tomato;
+}
+  /* main page content, the margin-left have to be equal to side bar width */
+  main.content {
+    text-align:left;
+    text-transform: unset;
+    margin-left: 20%;
+    height: 100%;
+  }
+  #skills li {
+    display: inline-block;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border: 0.15rem solid rgb(80, 80, 90);
+    border-radius: 0.4rem;
+    color: rgb(46, 46, 53);
+    background-color: white;
+    font-weight: 800;
+}
+  #video {
+      width: 100%;
+      height: auto;
+  }
+  footer {
+      background-color: rgb(194, 182, 248);
+  }
+  /* when the screen size less then 800px side bar become a top bar */
+  @media screen and (max-width: 800px) {
+    .sidebar {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    main.content {margin-left: 0;}
+    #video iframe {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 2rem;
+        width: 100%;
+        height: auto;
+    }
+  }
+  
+  /* when the screen size less then 400px */
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
 
-element.style {
-}
-#sideNav {
+#imgPersonal {
+    width: 80%;
+    padding: 20px;
+    vertical-align: middle;
+    display: flex;
+    inline-size: fit-content;
+} 
+#imgPersonal img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+} 
+
+
+
+/* #sideNav {
     text-align: left;
     position: fixed;
     top: 0;
@@ -52,18 +132,7 @@ main.content {
     justify-content: space-between;
     padding: 0.5rem 1rem;
 }
-.fixed-top {
-    /* position: fixed; */
-    /* top: 0; */
-    /* right: 0; */
-    left: 0;
-    /* z-index: 1030; */
-}
-#sideNav .navbar-nav .nav-item .nav-link {
-    font-weight: 800;
-    letter-spacing: 0.05rem;
-    text-transform: uppercase;
-}
+
 nav ul li {
     list-style: none;
     text-transform: capitalize;
@@ -72,24 +141,16 @@ a:link {
     color: darkblue;
     text-decoration: none;
   }
-a:visited {
+#connect a:visited {
     color: seagreen;
 }
-a:hover {
-    text-decoration: underline;
-    color: tomato;
-    background-color: lightslategrey;
-    display: flex;
-}
-/* img:hover {
-border: 8px solid blue;
-border-radius: 8px;
-} */
-a:focus {
+
+focus {
     color: white;
     background-color: orange;
 }
 .img-size {
-   width: 1rem;
-   height: 1rem;
+   width: 1em;
+   height: 1em;
 }
+ */
