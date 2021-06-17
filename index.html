@@ -12,12 +12,13 @@
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
         <!-- Core theme CSS -->
         <link rel="stylesheet" href="css/index.css">
+        <link rel="stylesheet" href="css/animate.css">
     </head>  
 
     <body>
         
         <header class="sidebar">
-            <h1 class="heading mainheading">Alena Miadzvedskaya</h1> 
+            <h1 class="heading">Alena Miadzvedskaya</h1> 
             <div id="imgPersonal">
                 <img  src="img/img_girl.jpg" alt="Picture" title="To be in a harmony with nature that is my dream for all of us">
             </div>
@@ -67,9 +68,9 @@
             <section id="connect" class="section">
                 <h2 class="heading">Connect</h2>
                 <ul>
-                    <li><img src="img/GmailLogo.png" class="img-size" alt="gmail logo" width="16" height="10">My email: <a href="mailto:mittusik@gmail.com?subject=Hi%20;Alena!">mittusik@gmail.com</a></li>
-                    <li><img src="img/gHLogo.png" class="img-size" alt="gitHub logo" width="16" height="16">GitHub link: <a href="https://github.com/alenamedved" target="_blank">https://github.com/alenamedved</a></li>
-                    <li><img src="img/LinkInLogo.png" class="img-size" alt="LinkedIn logo" width="16" height="16">Find me at LinkedIn: <a href="https://www.linkedin.com/in/alena-miadzvedskaya-848313137/" target="_blank">https://www.linkedin.com/in/alena-miadzvedskaya-848313137/</a></li>
+                    <li><a href="mailto:mittusik@gmail.com?subject=Hi%20;Alena!"><img src="img/GmailLogo.png" class="img-size" alt="gmail logo" width="20" height="20"></a></li>
+                    <li><a href="https://github.com/alenamedved" target="_blank"><img src="img/gHLogo.png" class="img-size" alt="gitHub logo" width="16" height="16"></a></li>
+                    <li><a href="https://www.linkedin.com/in/alena-miadzvedskaya-848313137/" target="_blank"><img src="img/LinkInLogo.png" class="img-size" alt="LinkedIn logo" width="16" height="16"></a></li>
                 </ul>
             </section> 
         
@@ -79,13 +80,13 @@
                     <h2 class="heading">Leave a Message</h2>
 
                     <form id="form" action="index.html" name="leave_message">
-                        <label for="name">Name</label>
+                        <label for="name">Name</label><br>
                         <input type="text" id="name" name="name" required>
 
                         <input type="radio" id="employer" name="employer">
                         <label for="employer">Are you employer?</label><br>
 
-                        <label for="email">Email</label>
+                        <label for="email">Email</label><br>
                         <input type="email" id="email" name="email" required>
 
                         <input type="radio" id="friend" name="friend">
@@ -93,7 +94,7 @@
 
                         <label for="messageFromUser"></label><br>
                         <textarea name="message" id="messageFromUser" placeholder="Type the message in here" required></textarea><br>
-                        <button type="submit">Submit</button>
+                        <button type="submit" >Submit</button>
                     </form>
                 </fieldset>
             </section>
@@ -112,11 +113,25 @@
 
         </main>
 
-        <footer style="font-size: small;" > 
+        <div class="canvas">
+            <div class="tree">
+              <div class="trunk">
+                <div class="branch">
+                  <div class="leaf"></div>
+                  <div class="leaf"></div>
+                  <div class="leaf"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        <footer> 
             <!--  <p><small>&copy;2021 Alena The Developer, The Blog</small></p> --> 
         </footer>
     
     <script src="js/index.js"></script>
+    <script src="js/wow.js"></script>
+    <script src="js/wow.min.js"></script>
 </body>
 
 </html>

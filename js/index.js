@@ -34,6 +34,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const button = document.createElement('button')
         button.innerText = nameButton
         button.type = 'button'
+        button.className = nameButton.toLowerCase()
         return button
     }
     
