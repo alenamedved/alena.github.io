@@ -1,0 +1,88 @@
+body {
+    background-color: aliceblue;
+    font-family: Saira extra condensed;
+    font-size: 1.5rem;
+}
+
+/* Side bar */
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    background-color: #97c2fa;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    text-align: center;
+    max-width: 100rem;
+    max-height: 100rem;
+  }
+/* side bar links */
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 16px;
+    text-decoration: none;
+    
+  }
+.sidebar li {
+    list-style: none;
+    text-size-adjust: auto;
+}
+  
+  /* active links */
+  .sidebar a.active {
+    background-color: #4CAF50;
+    color: white;
+  }
+  
+  /* hover through the links */
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  
+  /* main page content, the margin-left have to be equal to side bar width */
+  main.content {
+    text-align:left;
+    text-transform: unset;
+    margin-left: 20%;
+    padding: 1px 16px;
+    height: 100%;
+  }
+  
+  /* when the screen size less then 800px side bar become a top bar */
+  @media screen and (max-width: 800px) {
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    main.content {margin-left: 0;}
+  }
+  
+  /* when the screen size less then 400px отображать вертикально, а не горизонтально */
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+    }
+  }
+a:hover {
+    text-decoration: underline;
+    color: tomato;
+}
+#imgPersonal {
+    width: 80%;
+    /* max-width: 300px;
+    max-height: 200px; */
+    padding: 20px;
+    vertical-align: middle;
+    display: flex;
+} 
+#imgPersonal img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+} 

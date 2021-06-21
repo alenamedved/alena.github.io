@@ -1,0 +1,275 @@
+body {
+    background-color: aliceblue;
+    font-family: Saira extra condensed;
+    font-size: 1.5rem;
+}
+.section {
+    width: 100%;
+    margin-bottom: 2em;
+    padding: .2em;
+    align-content: center;
+}
+/* Side bar */
+.sidebar {
+    margin: 0;
+    padding: 0;
+    width: 20%;
+    background-color: #97c2fa;
+    position: fixed;
+    height: 100%;
+    overflow: auto;
+    text-align: center;
+    
+  }
+.sidebar ul {
+   padding: 0px;
+}
+.sidebar li { 
+    list-style: none;
+    /* text-size-adjust: auto; */
+}
+/* side bar links */
+.sidebar a {
+    display: block;
+    color: black;
+    padding: 1rem;
+    text-decoration: none;
+    font-size: 2rem;
+    font-weight: 600;
+}
+  
+  /* hover through the links */
+  .sidebar a:hover:not(.active) {
+    background-color: #555;
+    color: white;
+  }
+  a:hover {
+    text-decoration: underline;
+    color: tomato;
+}
+  /* main page content, the margin-left have to be equal to side bar width */
+  main.content {
+    text-align:left;
+    text-transform: unset;
+    margin-left: 20%;
+    padding: 1rem;
+    height: 100%;
+    position: relative;
+  }
+
+ /*  h1.heading {
+    background-color: tomato;
+  } */
+  #skills ul {
+      padding: 0px;
+  }
+  #skills li {
+    display: inline-block;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    border: 0.15rem solid rgb(80, 80, 90);
+    border-radius: 0.4rem;
+    color: rgb(46, 46, 53);
+    background-color: white;
+    font-weight: 800;
+}
+
+/* section#messages li > button {
+    background-color: rgb(214, 44, 44);
+    height: 2em;
+    border-radius: 0.5em;
+} */
+fieldset {
+    border-color: #f0ffff;
+}
+
+#messages ul {
+    max-width: 1200px;
+}
+#messages li:nth-child(odd) {
+    background-color: #f3fff0;
+}
+#messages li {
+    background-color: rgb(239, 238, 245);
+    margin-bottom: .6em;
+    border-radius: 0.5em; 
+    border-style: groove;
+    list-style: auto;
+    width: fit-content;
+}
+#messages a {
+    margin-left: 0.5em;
+}
+button[type=submit] {
+    background-color: rgb(2, 163, 163);
+    font-weight: 600;
+    height: 2em;
+    border-radius: 0.5em;
+    width: fit-content;
+    
+    height: auto;
+    padding: 0.5em;
+}
+input[type=text],
+input[type=email],
+#messageFromUser {
+    border-width: 0.4em;
+    border-color: rgb(178, 179, 206);
+    border-style: groove;
+    border-radius: 5px;
+    display: inline;
+}
+button.remove {
+    background-color: rgb(253, 66, 97);
+    height: 2em;
+    border-radius: 0.5em;
+}
+button.edit {
+    background-color: rgb(217, 243, 146);
+    height: 2em;
+    border-radius: 0.5em;
+}
+button.done {
+    background-color: rgb(248, 233, 20);
+    height: 2em;
+    border-radius: 0.5em;
+}
+#imgPersonal {
+    width: 80%;
+    padding: 20px;
+    vertical-align: middle;
+    display: flex;
+    inline-size: fit-content;
+} 
+#imgPersonal img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+} 
+#connect ul {
+    padding: 0px;
+}
+#connect li {
+    display: inline-block;
+    padding-left: 2em;
+    justify-content: center;
+    list-style: none;
+}
+.img-size {
+    width: 2em;
+    height: 2em;
+ }
+#video {
+      width: 100%;
+      height: auto;
+}
+footer {
+      margin-left: 20%;
+      padding-left: 1em;
+      font-size: small;
+      background-color: rgb(231, 228, 241);
+}
+footer p {
+    text-align: center;
+    margin-right: 1rem;
+}
+  /* when the screen size less then 800px side bar become a top bar */
+  @media screen and (max-width: 800px) {
+    .sidebar {
+      width: 100%;
+      height: 100%;
+      position: relative;
+    }
+    .sidebar a {float: left;}
+    main.content {margin-left: 0;}
+    #video iframe {
+        display: flex;
+        justify-content: space-evenly;
+        margin-top: 2rem;
+        width: 100%;
+        height: auto;
+    }
+    footer {
+        margin: 1rem;
+       
+    }
+    input[type=radio],
+    label[for=employer],
+    label[for=friend] {
+        display: none;
+    }
+  }
+  
+  /* when the screen size less then 400px */
+  @media screen and (max-width: 400px) {
+    .sidebar a {
+      text-align: center;
+      float: none;
+      padding: 0px;
+    }
+    .section {
+        margin: 0em;
+        padding: 0em;
+    }
+    footer {
+        margin-left: 0em;
+        padding-left: 0em;
+    }
+    #messages ul {
+        margin: 0em;
+        padding: 0em;
+    }
+  }
+
+
+/* #sideNav {
+    text-align: left;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: revert;
+    width: 17rem;
+    height: 100%;
+}
+main.content {
+    text-align:left;
+    text-transform: unset;
+    margin-left: 18rem;
+    padding: 1px 16px;
+    height: 100%;
+  }
+.navbar-expand-lg {
+    flex-flow: row nowrap;
+    justify-content: flex-start;
+}
+.navbar {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem 1rem;
+}
+
+nav ul li {
+    list-style: none;
+    text-transform: capitalize;
+}
+a:link {
+    color: darkblue;
+    text-decoration: none;
+  }
+#connect a:visited {
+    color: seagreen;
+}
+
+focus {
+    color: white;
+    background-color: orange;
+}
+.img-size {
+   width: 1em;
+   height: 1em;
+}
+ */
