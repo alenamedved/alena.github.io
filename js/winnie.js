@@ -5,7 +5,7 @@ const winnieSkillsList = winnieSkillsSection.querySelector('ul');
 const ageSection = document.getElementById('about');
 
 //Create variables to work 
-const myName = 'Alena Miadzvedskaya';
+const myName = 'Winnie The Pooh';
 const winnieDOB = new Date(2020, 8, 3);
 const today = new Date();
 const thisYear = today.getFullYear();
