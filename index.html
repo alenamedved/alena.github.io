@@ -10,11 +10,16 @@
         <!-- Google fonts-->
         <link rel="preconnect" href="https://fonts.gstatic.com">
         <link href="https://fonts.googleapis.com/css?family=Saira+Extra+Condensed:500,700" rel="stylesheet" type="text/css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
         <!-- AOS library -->
         <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
         <!-- Core theme CSS -->
         <link rel="stylesheet" href="css/index.css">
-        <link rel="stylesheet" href="css/animate.css">
+        <!-- Link for favicon --> 
+        <link rel="icon" href="faviconBy.ico" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
     </head>  
 
     <body>
@@ -36,10 +41,20 @@
                     </ul>
                 </nav>
             </div>
+            
         </header>
+            
         <main class="content">
+            <div id="art" data-aos="fade-down"
+                                            data-aos-easing="linear"
+                                            data-aos-duration="1500">
+                 <img src="img/image005.jpg" alt="Mark Chagall Over the town" title="Over the town">
+            </div>
+           
 
-            <section id="about" class="section"  data-aos="fade-up">
+            <section id="about" class="section"  data-aos="fade-up" 
+                                                data-aos-easing="linear"
+                                                data-aos-duration="1500">
                 <h2 class="heading animation">About Me</h2>
                 <article>
                     <p>Hi!</p>
@@ -51,24 +66,36 @@
                 </article>
             </section>
         
-
-            <section id="experience" class="section"  data-aos="fade-up">
+            
+            <section id="experience" class="section"  data-aos="fade-up" 
+                                                        data-aos-easing="linear"
+                                                        data-aos-duration="1500">
                 <h2 class="heading animation">Experience</h2>
                 <div class="flex-cont">
                     <p>Now as a CTD student I learn JavaScript, HTML and CSS and work on my Portfolio. </p>
                     <p>I used to work as a Senior Environmental Engineer at the consulting organization where I prepared and provided necessary documentations to its clients in order to comply with ecological laws and acceptable norms required by legislation.</p> 
                     <p>Also I'd worked on different projects to help protect our environment and make it better.</p>
                 </div>
-            </section>  
+            </section> 
 
-            <section id="skills" class="section"  data-aos="fade-up">
+            <div class="sticky">
+                <a href="#" title="Go to Top" class="topbutton">^Go to Top</a>
+            </div> 
+
+          
+
+            <section id="skills" class="section"  data-aos="fade-up" 
+                                                    data-aos-easing="linear"
+                                                    data-aos-duration="1500">
                 <h2 class="heading animation">Skills</h2>
                 <ul></ul>
 
 
             </section>
 
-            <section id="connect" class="section" data-aos="fade-up">
+            <section id="connect" class="section" data-aos="fade-up" 
+                                                    data-aos-easing="linear"
+                                                    data-aos-duration="1500">
                 <h2 class="heading animation">Connect</h2>
                 <ul>
                     <li><a href="mailto:mittusik@gmail.com?subject=Hi%20;Alena!"><img src="img/GmailLogo.png" class="img-size" alt="gmail logo" width="20" height="20"></a></li>
@@ -78,12 +105,16 @@
             </section> 
         
 
-            <section id="message" class="section" data-aos="fade-up">
+            <section id="message" class="section" data-aos="fade-up" 
+                                                    data-aos-easing="linear"
+                                                    data-aos-duration="1500">
                 
                     <fieldset>
-                        <h2 class="heading">Leave a Message</h2>
+                        <h2 class="heading animation">Leave a Message</h2>
 
-                        <form id="form" action="index.html" name="leave_message" data-aos="fade-left">
+                        <form id="form" action="index.html" name="leave_message" data-aos="fade-left" 
+                                                                                 data-aos-easing="linear"
+                                                                                 data-aos-duration="1500">
                             <label for="name">Name</label><br>
                             <input type="text" id="name" name="name" required>
 
@@ -104,7 +135,9 @@
                 
             </section>
 
-            <section id="messages" class="section" data-aos="fade-up">
+            <section id="messages" class="section" data-aos="fade-up" 
+                                                    data-aos-easing="linear"
+                                                    data-aos-duration="1500">
                 
                     <fieldset>
                         <h2 class="heading">Messages</h2>
@@ -114,14 +147,14 @@
             </section>
 
             <div id="video" class="section" data-aos="flip-up"
-            data-aos-anchor-placement="top-bottom">
+                                            data-aos-anchor-placement="top-bottom" 
+                                            data-aos-easing="linear"
+                                            data-aos-duration="1500">
                 <iframe width="560" height="315" src="https://www.youtube.com/embed/lGIDR1aDVdk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
                 </iframe>
             </div>
 
-            <div>
-                <a href="#" title="Go to Top" class="topbutton">^Go to Top</a>
-            </div>
+            
         </main>
         
 
@@ -130,12 +163,13 @@
         </footer>
     
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
     <script>
         AOS.init();
     </script>
+
     <script src="js/index.js"></script>
-    <script src="js/wow.js"></script>
-    <script src="js/wow.min.js"></script>
+    
 </body>
 
 </html>

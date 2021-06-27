@@ -5,12 +5,6 @@ body {
     text-rendering: optimizeSpeed;
 }
 
-.section {
-    width: 100%;
-    margin-bottom: 6em;
-    padding: .2em;
-}
-
 /* Side bar */
 .sidebar {
     top: 0;
@@ -52,16 +46,31 @@ a:hover {
   /* main page content, the margin-left have to be equal to side bar width */
 main.content {
     text-align:left;
-    text-transform: unset;
-    margin-left: 20%;
-    padding: 1rem;
+    margin: 10% 10% 10% 25%;
     height: 100%;
-    position: relative;
+      position: relative;
 }
+#art {
+    position: absolute;
+    opacity: 0.2;
+    top: 0;
+    right: 0;
+    z-index: -1;
+}
+.section {
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 6em;
+    padding-left: .2em;
+}
+
 .flex-cont {
     display: flex;
     background-color: #97c2fa;
     justify-content: center;
+}
+#experience {
+    position: relative;
 }
 #experience p {
     background-color: rgba(255, 255, 255, 0.8);
@@ -89,10 +98,12 @@ h1.heading {
     animation: header 8s ease-in-out 1s infinite alternate none;
 }
 @keyframes header {
-    from {
-      color: #97c2fa;
+    0% {
+      color: #6ca9fa;
     }
-    to {
+    50% 
+    { color: rgb(88, 12, 12);}
+    100% {
       color:rgb(38, 29, 119)
     }
 }
@@ -101,6 +112,7 @@ h1.heading {
 #about a {
       text-decoration: none;
 }
+
 #skills ul {
       padding: 0px;
 }
@@ -139,9 +151,13 @@ fieldset {
     list-style: auto;
     width: fit-content;
 }
+#messages span:nth-child(1) {
+    font-family: 'Dancing Script', cursive;
+    font-size: larger;
+}
 
 #messages a {
-    margin-left: 0.5em;
+    margin-left: 0.2em;
 }
 
 button[type=submit] {
@@ -152,7 +168,7 @@ button[type=submit] {
     border-radius: 0.5em;
     width: fit-content;
     height: auto;
-    padding: 0.5em;
+    padding: 0.5em 1em 0.5em 1em;
 }
 
 input[type=text],
@@ -222,6 +238,7 @@ button.done {
     margin-bottom: 1em;
     padding-top: 0px;
     cursor: pointer;
+    opacity: 0.5;
 }
 
 .img-size {
@@ -231,18 +248,20 @@ button.done {
 }
 
 #video {
+    box-sizing: border-box;
       width: 100%;
       height: auto;
 }
-    
+.sticky {
+    position: sticky;
+    top: 15em;
+    float: right;
+} 
 .topbutton {
     border:2px solid #ccc;
     background:#f0f8ff;
     text-align:center;
     padding:10px;
-    position:fixed;
-    bottom:50px;
-    right:50px;
     cursor:pointer;
     color:#333;
     font-family:verdana;
@@ -250,7 +269,6 @@ button.done {
     border-radius: 5px; 
     opacity: 0.8;
     -moz-opacity: 0.6;
-    
 }
 .topbutton:hover{
     background-color: white;
@@ -274,10 +292,16 @@ footer p {
     .sidebar {
         font-size: 1rem;
     }
+    main.content {
+        margin: 5% 3% 5% 20%;
+    }
 }
 
 /* when the screen size less then 800px side bar become a top bar */
 @media screen and (max-width: 800px) {
+    body {
+        margin: 10px;
+    }
     .sidebar {
       width: 100%;
       height: 100%;
@@ -288,15 +312,23 @@ footer p {
         display: flex;
         justify-content: center;
     }
-    .sidebar a {
-        float: left;
+    #art {
+        width: 100%;
+        box-sizing: border-box;
+    }
+    #art img {
+        width: 100%;
     }
     main.content {
-        margin-left: 0;
+        margin-left: 5px;
+        margin-right: 5px;
     }
     .flex-cont {
         display: block;
         padding: 1rem;
+    }
+    #messages ul {
+        padding-left: 1rem;
     }
     #video iframe {
         display: flex;
@@ -313,6 +345,7 @@ footer p {
         height: 3em;
         inline-size: 60%;
     }
+    
     footer {
         margin: 1rem;
        
@@ -326,8 +359,8 @@ footer p {
         display: none;
     }
     .smallPicture {
-    display: initial;
-    width: 50%;
+        display: initial;
+        width: 50%;
     }
     #imgPersonal {
         margin: auto;
@@ -339,26 +372,18 @@ footer p {
         margin: auto;
         justify-content: center;
     }
-    @keyframes slidein {
-        from {
-          margin-left: 100%;
-          /* width: 300%; */
-        }
       
-        to {
-          margin-left: 0%;
-          
-        }
-    }
-    
 }
   
-  /* when the screen size less then 400px */
-@media screen and (max-width: 400px) {
+  /* when the screen size less then 480px */
+@media screen and (max-width: 480px) {
+   
+    
     .sidebar a {
       text-align: center;
       float: none;
       padding: 0px;
+      
     }
     .sidebar ul {
         display: block;
@@ -366,6 +391,9 @@ footer p {
     .section {
         margin: 0em;
         padding: 0em;
+    }
+    #art {
+        padding: 0px;
     }
     input[type=text],
     input[type=email],
@@ -384,5 +412,31 @@ footer p {
     }
     #imgPersonal {
         display: none;
+    }
+}
+
+@media print {
+    .section {
+        min-height: auto;
+    }
+    .sidebar {
+        width: 100%;
+        height: 100%;
+        position: relative;
+        font-size: 1.5rem;
+    }
+    #imgPersonal {
+        display: none;
+    }
+    .sidebar ul {
+        display: flex;
+        justify-content: center;
+    }
+    body {
+        margin: 0px;
+    }
+    main.content {
+        margin-left: 0;
+        margin-right: 0;
     }
 }
