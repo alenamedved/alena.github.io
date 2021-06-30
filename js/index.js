@@ -7,14 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const messageList = messageSection.querySelector('ul')
     const skillsSection = document.getElementById('skills');
     const skillsList = skillsSection.querySelector('ul');
-    
+   
     
     //Make message section invisible by default    
     messageSection.style.display = 'none'
     
     //Create variables for use
     const myName = 'Alena Miadzvedskaya';
-    const today = new Date;
+    const today = new Date();
     const thisYear = today.getFullYear();
     const skills = [
         'JavaScript', 
@@ -27,7 +27,24 @@ document.addEventListener('DOMContentLoaded', () => {
         'Engineering', 
         'Reserch'
     ];
+
     
+    //Function to get a current time
+    function getTime() {
+        const today = new Date()
+        const weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat']
+        const dd = String(today.getDate()).padStart(2, '0');
+        const dayOfWeek = weekday[today.getDay()]
+        const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+        const yyyy = today.getFullYear();
+        const hours = today.getHours() > 12 ? today.getHours() - 12 : (today.getHours() < 10 ? "0" + today.getHours() : today.getHours())
+        const min = today.getMinutes()
+        const sec = today.getSeconds()
+        const secPmAm = today.getHours() >= 12 ? sec + ' PM' : sec + ' AM'
+        const time = dayOfWeek + ' ' + mm + '/' + dd + '/' + yyyy +', ' + hours +':'+ min + ':' + secPmAm;
+        // let time = today.toLocaleString({weekday: 'short'})
+        return time
+    }
     
     //Function to create a button
     function createButton(nameButton) {
@@ -40,7 +57,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     
     //Add the copyright with name and year to the footer
-    copyright.innerHTML = `&copy; ${myName} ${thisYear} `;
+    copyright.innerHTML = ` &copy; ${myName} ${thisYear}`;
     footer.appendChild(copyright);
     
     
@@ -55,6 +72,7 @@ document.addEventListener('DOMContentLoaded', () => {
     skillsSection.addEventListener('mouseover', (event) => {
         if (event.target.tagName == 'LI') {
             event.target.textContent = event.target.textContent.toUpperCase();
+            event.target.style.opacity = 0.8
         }
     });
 
@@ -65,6 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 event.target.textContent = skills[i]
                 }
             }
+            event.target.style.opacity = 1
         }
     });
 
@@ -86,17 +105,21 @@ document.addEventListener('DOMContentLoaded', () => {
         const editButton = createButton('Edit')
         const doneButton = createButton('Done')
         const newMessage = document.createElement('li')
+        const timePin = document.createElement('span')
         
         //Make the Done button hidden by default
         doneButton.style.visibility = 'hidden'
         
-        newMessage.innerHTML = (`<a href="mailto:${email}">${name}</a> wrote: <span><em>${messageFromUser}</em></span> &nbsp`)
-        
+        newMessage.innerHTML = (`<span>${messageFromUser}</span><br> <span>${getTime()}</span> from: <a href="mailto:${email}">${name}</a>&nbsp`)
+                
         //Final appendants to the DOM: add created elements to the newMessage and append the newMessage to  the list. 
+        newMessage.appendChild(timePin)
         newMessage.appendChild(removeButton)
         newMessage.appendChild(editButton)
         newMessage.appendChild(doneButton)
+        
         messageList.appendChild(newMessage)
+        
         
         //As li element was added the message section can be visible
         messageSection.style.display = 'inline-block'
@@ -152,6 +175,6 @@ document.addEventListener('DOMContentLoaded', () => {
             
         }//end of if statement
     }//end of onclick event for messageList
-
+    
 })
  
