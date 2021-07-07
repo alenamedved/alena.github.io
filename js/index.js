@@ -10,9 +10,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
    
     //add a label to the users message if he checked out 'friend' of 'emploeyr' radio button
-    const radioEmployer = document.getElementById('employer')
-    const radioFriend = document.getElementById('friend')
-    arrImg = new Array()
+    
+    const arrImg = []
     arrImg[0] = new Image
     arrImg[1] = new Image
     arrImg[0].src = "img/star_logo.png"
