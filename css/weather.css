@@ -1,0 +1,29 @@
+.weather {
+    margin-right: 10%;
+    display: none;
+}
+.weather p {
+    display: flex;
+    justify-content: flex-end;
+    opacity: 0.5;
+    flex-wrap: wrap;
+    font-size: 1.5rem;
+   
+}
+.weather p:hover {
+    opacity: 1;
+}
+@media screen and (max-width: 1200px) {
+    .weather {
+        margin-right: 3%;
+    }
+}
+@media screen and (max-width: 480px) {
+    .weather p {
+        display: none;
+    }
+    
+}
+@media screen and (max-width: 800px) {
+    margin-right: 5px;
+}
