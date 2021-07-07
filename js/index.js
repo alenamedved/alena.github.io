@@ -7,8 +7,31 @@ document.addEventListener('DOMContentLoaded', () => {
     const messageList = messageSection.querySelector('ul')
     const skillsSection = document.getElementById('skills');
     const skillsList = skillsSection.querySelector('ul');
+
    
+    //add a label to the users message if he checked out 'friend' of 'emploeyr' radio button
     
+    const arrImg = []
+    arrImg[0] = new Image
+    arrImg[1] = new Image
+    arrImg[0].src = "img/star_logo.png"
+    arrImg[1].src = "img/heart_logo.jpg"
+    arrImg[0].width = 16
+    arrImg[1].width = 16
+    
+    function checkRadioButton() {
+        let radio = document.getElementsByName('radio')
+        let pin = document.createElement('span')
+                        
+        for(let i = 0; i < radio.length; i++) {
+            if(radio[i].checked) {
+            pin = radio[i].id === 'employer' ? pin.appendChild(arrImg[i]) : pin.appendChild(arrImg[i])
+            } 
+        }
+        return pin
+    }
+
+        
     //Make message section invisible by default    
     messageSection.style.display = 'none'
     
@@ -105,15 +128,14 @@ document.addEventListener('DOMContentLoaded', () => {
         const editButton = createButton('Edit')
         const doneButton = createButton('Done')
         const newMessage = document.createElement('li')
-        const timePin = document.createElement('span')
-        
+                
         //Make the Done button hidden by default
         doneButton.style.visibility = 'hidden'
         
         newMessage.innerHTML = (`<span>${messageFromUser}</span><br> <span>${getTime()}</span> from: <a href="mailto:${email}">${name}</a>&nbsp`)
                 
         //Final appendants to the DOM: add created elements to the newMessage and append the newMessage to  the list. 
-        newMessage.appendChild(timePin)
+        newMessage.appendChild(checkRadioButton())
         newMessage.appendChild(removeButton)
         newMessage.appendChild(editButton)
         newMessage.appendChild(doneButton)
@@ -177,4 +199,61 @@ document.addEventListener('DOMContentLoaded', () => {
     }//end of onclick event for messageList
     
 })
- 
+
+
+const gitHubRequest = new XMLHttpRequest()
+const GITHUB_USERNAME = 'alenamedved'
+gitHubRequest.open('GET', `https://api.github.com/users/${GITHUB_USERNAME}/repos`)
+gitHubRequest.send()
+
+gitHubRequest.addEventListener('load', (e) => {
+    const repositories = JSON.parse(e.target.response)
+    console.log(repositories)
+    const projectSection = document.getElementById('projects')
+    const projectList = projectSection.querySelector('ul')
+    projectList.className = 'projectUl'
+    repositories.forEach((repo, i) => {
+        const project = document.createElement('li')
+        const aTag = document.createElement('a')
+        const descr = document.createElement('p')
+       
+        descr.className = 'repoDescr'
+        aTag.href = repo.html_url
+        aTag.target = '_blank'
+        aTag.innerText = repo.name.split('-').join(' ')
+        descr.innerText = `Description: ${repo.description}`
+        project.className = `item${i}`
+        i = i + 1
+
+        project.appendChild(aTag)
+        project.appendChild(descr)
+        projectList.appendChild(project)
+    })
+
+})
+
+// another version using method onreadystatechange
+/* gitHubRequest.onreadystatechange = function () {
+    if(gitHubRequest.readyState === 4 && gitHubRequest.status === 200) {
+        const repositories = JSON.parse(gitHubRequest.response)
+        
+        const projectSection = document.getElementById('projects')
+        const projectList = projectSection.querySelector('ul')
+        repositories.forEach(repo => {
+            console.log(repo)
+            const project = document.createElement('li')
+            const aTag = document.createElement('a')
+            let i = 0
+            aTag.href = repo.html_url
+            aTag.target = '_blank'
+            aTag.innerText = repo.name
+            aTag.className = `item${i}`
+            console.log(aTag)
+            project.appendChild(aTag)
+            projectList.appendChild(project)
+            i += 1
+        })
+    }
+
+} */
+
