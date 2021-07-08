@@ -6,7 +6,7 @@ This ten-week project will teach you how to build your own personal portfolio we
 
 Each lesson is a an individual assignment, but you will work out of the same repository for the entire project. See instructions below for how to submit each week.
 
-Grading for this project is less rigid, given the open-ended instructions. Make sure to follow the checklist for each lesson, but how you implement each task is entirely up to you!
+Grading for this project is less rigid, given the open-ended instructions ([View Grading Rubric](instructions/rubric.md)). Make sure to follow the checklist for each lesson, but how you implement each task is entirely up to you!
 
 ## Instructions
 
