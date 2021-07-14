@@ -1,6 +1,6 @@
 .weather {
     margin-right: 10%;
-    display: none;
+    /* display: none; */
 }
 .weather p {
     display: flex;
@@ -24,6 +24,6 @@
     }
     
 }
-@media screen and (max-width: 800px) {
+/* @media screen and (max-width: 800px) {
     margin-right: 5px;
-}
+} */
