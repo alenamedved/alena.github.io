@@ -7,10 +7,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const messageList = messageSection.querySelector('ul')
     const skillsSection = document.getElementById('skills');
     const skillsList = skillsSection.querySelector('ul');
-
-   
-    //add a label to the users message if he checked out 'friend' of 'emploeyr' radio button
     
+    //add a label to the users message if he checked out 'friend' of 'emploeyr' radio button
+
     const arrImg = []
     arrImg[0] = new Image
     arrImg[1] = new Image
@@ -18,40 +17,41 @@ document.addEventListener('DOMContentLoaded', () => {
     arrImg[1].src = "img/heart_logo.jpg"
     arrImg[0].width = 16
     arrImg[1].width = 16
-    
+
+    //check if radio button is checked or not
     function checkRadioButton() {
         let radio = document.getElementsByName('radio')
         let pin = document.createElement('span')
-                        
-        for(let i = 0; i < radio.length; i++) {
-            if(radio[i].checked) {
-            pin = radio[i].id === 'employer' ? pin.appendChild(arrImg[i]) : pin.appendChild(arrImg[i])
-            } 
+
+        for (let i = 0; i < radio.length; i++) {
+            if (radio[i].checked) {
+                pin = radio[i].id === 'employer' ? pin.appendChild(arrImg[i]) : pin.appendChild(arrImg[i])
+            }
         }
         return pin
     }
 
-        
+
     //Make message section invisible by default    
     messageSection.style.display = 'none'
-    
+
     //Create variables for use
     const myName = 'Alena Miadzvedskaya';
     const today = new Date();
     const thisYear = today.getFullYear();
     const skills = [
-        'JavaScript', 
-        'HTML', 
-        'CSS', 
+        'JavaScript',
+        'HTML',
+        'CSS',
         'Git',
-        'Data Analysys', 
+        'Data Analysys',
         'Data Management',
-        'Analitical Skills', 
-        'Engineering', 
+        'Analitical Skills',
+        'Engineering',
         'Reserch'
     ];
 
-    
+
     //Function to get a current time
     function getTime() {
         const today = new Date()
@@ -64,11 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
         const min = today.getMinutes()
         const sec = today.getSeconds()
         const secPmAm = today.getHours() >= 12 ? sec + ' PM' : sec + ' AM'
-        const time = dayOfWeek + ' ' + mm + '/' + dd + '/' + yyyy +', ' + hours +':'+ min + ':' + secPmAm;
+        const time = dayOfWeek + ' ' + mm + '/' + dd + '/' + yyyy + ', ' + hours + ':' + min + ':' + secPmAm;
         // let time = today.toLocaleString({weekday: 'short'})
         return time
     }
-    
+
     //Function to create a button
     function createButton(nameButton) {
         const button = document.createElement('button')
@@ -77,15 +77,15 @@ document.addEventListener('DOMContentLoaded', () => {
         button.className = nameButton.toLowerCase()
         return button
     }
-    
-    
+
+
     //Add the copyright with name and year to the footer
     copyright.innerHTML = ` &copy; ${myName} ${thisYear}`;
     footer.appendChild(copyright);
-    
-    
+
+
     //Fill out the Skill section with skills from the skills array. 
-    for(let i = 0; i < skills.length; i++) {
+    for (let i = 0; i < skills.length; i++) {
         let skill = document.createElement('li');
         skill.innerText = skills[i];
         skillsList.appendChild(skill);
@@ -100,10 +100,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     skillsSection.addEventListener('mouseout', (event) => {
-        if(event.target.tagName == 'LI') {
-            for(let i = 0; i < skills.length; i++) {
-                if(event.target.textContent == skills[i].toUpperCase()) {
-                event.target.textContent = skills[i]
+        if (event.target.tagName == 'LI') {
+            for (let i = 0; i < skills.length; i++) {
+                if (event.target.textContent == skills[i].toUpperCase()) {
+                    event.target.textContent = skills[i]
                 }
             }
             event.target.style.opacity = 1
@@ -114,35 +114,35 @@ document.addEventListener('DOMContentLoaded', () => {
     //Working with Message Section: filling it in with messages from the users
     messageForm.addEventListener('submit', (event) => {
         event.preventDefault();
-        
+
         //Collect an input data from the user and store it in variables name, email, messageFromUser
         const name = event.target.name.value
         const email = event.target.email.value
         const messageFromUser = event.target.messageFromUser.value
-        
+
         //Log to the console to check if it works
         console.log(`${name} ${email} wrote: ${messageFromUser}`)
-        
+
         //Document creation of Elements
         const removeButton = createButton('Remove')
         const editButton = createButton('Edit')
         const doneButton = createButton('Done')
         const newMessage = document.createElement('li')
-                
+
         //Make the Done button hidden by default
         doneButton.style.visibility = 'hidden'
-        
+
         newMessage.innerHTML = (`<span>${messageFromUser}</span><br> <span>${getTime()}</span> from: <a href="mailto:${email}">${name}</a>&nbsp`)
-                
+
         //Final appendants to the DOM: add created elements to the newMessage and append the newMessage to  the list. 
         newMessage.appendChild(checkRadioButton())
         newMessage.appendChild(removeButton)
         newMessage.appendChild(editButton)
         newMessage.appendChild(doneButton)
-        
+
         messageList.appendChild(newMessage)
-        
-        
+
+
         //As li element was added the message section can be visible
         messageSection.style.display = 'inline-block'
 
@@ -153,30 +153,30 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //add onclick event to the messageList to make the buttons interactive
     messageList.onclick = (event) => {
-        if(event.target.tagName == "BUTTON") {
+        if (event.target.tagName == "BUTTON") {
             const button = event.target
             const action = button.innerText.toLowerCase()
             const entry = button.parentNode
-            
+
             //put the functions inside the Object
             const actions = {
 
                 remove: () => {
                     //make the message section gone using traversal approach
-                    if(entry.parentNode.children.length <= 1) {
+                    if (entry.parentNode.children.length <= 1) {
                         messageSection.style.display = 'none'
                     }
                     entry.remove()
                 },//end of remove function 
-                
+
                 edit: () => {
                     entry.querySelector('span').contentEditable = true;
                     entry.querySelector('span').style.background = 'lightgray'
-                    
+
                     //Add the option to edit the name line too
                     entry.querySelector('a').contentEditable = true;
                     entry.querySelector('a').style.background = 'lightgray'
-                    
+
                     //Make the Done button appear when additing the content
                     button.nextSibling.style.visibility = 'initial'
                 },//end of edit function
@@ -184,7 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 done: () => {
                     entry.querySelector('span').contentEditable = false;
                     entry.querySelector('span').style.background = 'none'
-                    
+
                     entry.querySelector('a').contentEditable = false;
                     entry.querySelector('a').style.background = 'none'
 
@@ -194,20 +194,19 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             //call the function from the object actions
             actions[action]()
-            
+
         }//end of if statement
     }//end of onclick event for messageList
-    
+
 })
 
 
-const gitHubRequest = new XMLHttpRequest()
+/* create and send a fetch request */
 const GITHUB_USERNAME = 'alenamedved'
-gitHubRequest.open('GET', `https://api.github.com/users/${GITHUB_USERNAME}/repos`)
-gitHubRequest.send()
 
-gitHubRequest.addEventListener('load', (e) => {
-    const repositories = JSON.parse(e.target.response)
+//Helper functions
+function handleRepoData(repositories) {
+
     console.log(repositories)
     const projectSection = document.getElementById('projects')
     const projectList = projectSection.querySelector('ul')
@@ -216,12 +215,12 @@ gitHubRequest.addEventListener('load', (e) => {
         const project = document.createElement('li')
         const aTag = document.createElement('a')
         const descr = document.createElement('p')
-       
+
         descr.className = 'repoDescr'
         aTag.href = repo.html_url
         aTag.target = '_blank'
         aTag.innerText = repo.name.split('-').join(' ')
-        descr.innerText = `Description: ${repo.description}`
+        descr.innerText = `Description: ${repo.description}.`
         project.className = `item${i}`
         i = i + 1
 
@@ -229,31 +228,24 @@ gitHubRequest.addEventListener('load', (e) => {
         project.appendChild(descr)
         projectList.appendChild(project)
     })
+}
 
-})
+function fetchData(url, functToDo) {
+    return fetch(url)
+        .then(checkStatus)
+        .then(resp => resp.json()) //return the json data
+        .catch(error => alert('Looks like there was a problem', error))
+        .then(result => functToDo(result))
 
-// another version using method onreadystatechange
-/* gitHubRequest.onreadystatechange = function () {
-    if(gitHubRequest.readyState === 4 && gitHubRequest.status === 200) {
-        const repositories = JSON.parse(gitHubRequest.response)
-        
-        const projectSection = document.getElementById('projects')
-        const projectList = projectSection.querySelector('ul')
-        repositories.forEach(repo => {
-            console.log(repo)
-            const project = document.createElement('li')
-            const aTag = document.createElement('a')
-            let i = 0
-            aTag.href = repo.html_url
-            aTag.target = '_blank'
-            aTag.innerText = repo.name
-            aTag.className = `item${i}`
-            console.log(aTag)
-            project.appendChild(aTag)
-            projectList.appendChild(project)
-            i += 1
-        })
+}
+
+function checkStatus(response) {
+    if (response.ok) {
+        return Promise.resolve(response)
+    } else {
+        return Promise.reject(new Error(response.statusText))
     }
-
-} */
+}
+//call fetch data
+fetchData(`https://api.github.com/users/${GITHUB_USERNAME}/repos`, handleRepoData)
 

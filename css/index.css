@@ -4,7 +4,9 @@ body {
     font-size: 1.5rem;
     text-rendering: optimizeSpeed;
 }
-
+#menu__toggle {
+    display: none;
+}
 /* Side bar */
 .sidebar {
     top: 0;
@@ -18,6 +20,7 @@ body {
     text-align: center;
 }
 .sidebar ul {
+    visibility: initial;
    padding: 0px;
 }
 .sidebar li { 
@@ -140,10 +143,10 @@ h1.heading {
 
 }
 #projects .item4 {
-    order: -2;
-} 
-#projects .item5 {
     order: -1;
+} 
+#projects .item3 {
+    order: -2;
 }   
 
 a[href^="http"]:visited {
@@ -321,9 +324,12 @@ footer p {
 }
 
 /* when the screen size less then 800px side bar become a top bar */
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 801px) {
     body {
         margin: 10px;
+    }
+    div.weather {
+        display: none;
     }
     .sidebar {
       width: 100%;
@@ -340,7 +346,7 @@ footer p {
         width: 100%;
         box-sizing: border-box;
     }
-    #art img {
+    #art img { 
         width: 100%;
     }
     main.content {
@@ -369,7 +375,9 @@ footer p {
         height: 3em;
         inline-size: 60%;
     }
-    
+    input[type=text]:hover {
+        background-color: #ccc;
+    }
     footer {
         margin: 1rem;
        
@@ -404,8 +412,6 @@ footer p {
    
     
     .sidebar a {
-      text-align: center;
-      float: none;
       padding: 0px;
       
     }
