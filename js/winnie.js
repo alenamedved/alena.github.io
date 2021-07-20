@@ -59,7 +59,7 @@ dots.style.textAlign = 'center'
 const winnieImg = []
 for (i = 1; i <= numOfPhotos; i++) {
   winnieImg[i] = new Image
-  winnieImg[i].src = `img/winniePhoto/${i}.jpg`
+  winnieImg[i].src = `img/winniePhoto/${i}.JPG`
 
 };
 
