@@ -18,8 +18,8 @@
         margin-right: 3%;
     }
 }
-@media screen and (max-width: 480px) {
-    .weather p {
+@media screen and (max-width: 801px) {
+    div.weather {
         display: none;
     }
     
