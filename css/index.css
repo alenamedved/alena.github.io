@@ -122,8 +122,13 @@ h1.heading {
     flex-wrap: wrap;
     flex-direction: row;
     list-style: none;
+    justify-content: center;
 }
-
+#skills li {
+    width: 100px;
+    height: 70px;
+    text-align: center;
+}
 #projects li,
 #skills li {
     padding: 0.5rem;
@@ -133,6 +138,7 @@ h1.heading {
     color: rgb(46, 46, 53);
     background-color: white;
     font-weight: 800;
+    
 }
 .repoDescr {
     font-size: 1rem;
@@ -143,10 +149,10 @@ h1.heading {
 
 }
 #projects .item4 {
-    order: -1;
+    order: -20;
 } 
-#projects .item3 {
-    order: -2;
+#projects .item5 {
+    order: -10;
 }   
 
 a[href^="http"]:visited {
@@ -231,7 +237,7 @@ button.done {
 .smallPicture {
     padding: 10%;
     vertical-align: middle;
-    display: flex;
+    /* display: flex; */
     inline-size: fit-content;
 } 
 
@@ -272,11 +278,11 @@ button.done {
 }
 
 #video {
-    display: flex;
+    inline-size: fit-content;
+    padding-top: 10px;
     margin: auto;
     box-sizing: border-box;
-    width: 80%;
-    
+       
 }
 .sticky {
     position: sticky;
@@ -328,9 +334,7 @@ footer p {
     body {
         margin: 10px;
     }
-    div.weather {
-        display: none;
-    }
+    
     .sidebar {
       width: 100%;
       height: 100%;
@@ -354,8 +358,15 @@ footer p {
         margin-right: 5px;
     }
     .flex-cont {
-        display: block;
+        flex-direction: column;
         padding: 1rem;
+    }
+    #connect ul {
+        display: flex;
+        justify-content: space-evenly;
+    }
+    #connect li {
+        padding: 0px;
     }
     #messages ul {
         padding-left: 1rem;
@@ -408,7 +419,7 @@ footer p {
 }
   
   /* when the screen size less then 480px */
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 481px) {
    
     
     .sidebar a {
@@ -424,6 +435,10 @@ footer p {
     }
     #art {
         padding: 0px;
+    }
+    
+    #projects li {
+        width: 100%;
     }
     input[type=text],
     input[type=email],

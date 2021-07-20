@@ -8,34 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const skillsSection = document.getElementById('skills');
     const skillsList = skillsSection.querySelector('ul');
     
-    //add a label to the users message if he checked out 'friend' of 'emploeyr' radio button
-
-    const arrImg = []
-    arrImg[0] = new Image
-    arrImg[1] = new Image
-    arrImg[0].src = "img/star_logo.png"
-    arrImg[1].src = "img/heart_logo.jpg"
-    arrImg[0].width = 16
-    arrImg[1].width = 16
-
-    //check if radio button is checked or not
-    function checkRadioButton() {
-        let radio = document.getElementsByName('radio')
-        let pin = document.createElement('span')
-
-        for (let i = 0; i < radio.length; i++) {
-            if (radio[i].checked) {
-                pin = radio[i].id === 'employer' ? pin.appendChild(arrImg[i]) : pin.appendChild(arrImg[i])
-            }
-        }
-        return pin
-    }
-
-
-    //Make message section invisible by default    
-    messageSection.style.display = 'none'
-
-    //Create variables for use
+    //Create variables to use
     const myName = 'Alena Miadzvedskaya';
     const today = new Date();
     const thisYear = today.getFullYear();
@@ -50,25 +23,48 @@ document.addEventListener('DOMContentLoaded', () => {
         'Engineering',
         'Reserch'
     ];
+    
+    //add a label to the users message if user checked out 'friend' of 'emploeyr' radio button
+    const arrImg = []
+    arrImg[0] = new Image
+    arrImg[1] = new Image
+    arrImg[0].src = "img/star_logo.png"
+    arrImg[1].src = "img/heart_logo.jpg"
+    arrImg[0].width = 16
+    arrImg[1].width = 16
+
+    //check if radio button is checked or not
+    function checkRadioButton() {
+        const radio = document.getElementsByName('radio')
+        let pin = document.createElement('span')
+
+        for (let i = 0; i < radio.length; i++) {
+            if (radio[i].checked) {
+                pin = radio[i].id === 'employer' ? pin.appendChild(arrImg[i]) : pin.appendChild(arrImg[i])
+            }
+        }
+        return pin
+    }
+
+    //update messageList with messages from local storage
+    updateMessageList()
+    
+    //Make message section invisible by default  if it is empty
+    if(localStorage['items'] === undefined || localStorage['items'].length <= 2) {
+        messageSection.style.display = 'none'
+    } else if (localStorage['items'].length > 2 ) {
+        messageSection.style.display = 'initial'
+    } 
 
 
     //Function to get a current time
     function getTime() {
         const today = new Date()
-        const weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat']
-        const dd = String(today.getDate()).padStart(2, '0');
-        const dayOfWeek = weekday[today.getDay()]
-        const mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-        const yyyy = today.getFullYear();
-        const hours = today.getHours() > 12 ? today.getHours() - 12 : (today.getHours() < 10 ? "0" + today.getHours() : today.getHours())
-        const min = today.getMinutes()
-        const sec = today.getSeconds()
-        const secPmAm = today.getHours() >= 12 ? sec + ' PM' : sec + ' AM'
-        const time = dayOfWeek + ' ' + mm + '/' + dd + '/' + yyyy + ', ' + hours + ':' + min + ':' + secPmAm;
-        // let time = today.toLocaleString({weekday: 'short'})
-        return time
+        const options = { weekday: 'short', year: 'numeric', month: 'long', day: 'numeric', hour: "2-digit", minute: "2-digit" }
+        //to get rid of ',' use split and join methods
+        return today.toLocaleString(undefined, options).split(',').join(' ');
     }
-
+    
     //Function to create a button
     function createButton(nameButton) {
         const button = document.createElement('button')
@@ -86,7 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     //Fill out the Skill section with skills from the skills array. 
     for (let i = 0; i < skills.length; i++) {
-        let skill = document.createElement('li');
+        const skill = document.createElement('li');
         skill.innerText = skills[i];
         skillsList.appendChild(skill);
     }
@@ -95,7 +91,7 @@ document.addEventListener('DOMContentLoaded', () => {
     skillsSection.addEventListener('mouseover', (event) => {
         if (event.target.tagName == 'LI') {
             event.target.textContent = event.target.textContent.toUpperCase();
-            event.target.style.opacity = 0.8
+            event.target.style.opacity = 0.7
         }
     });
 
@@ -103,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (event.target.tagName == 'LI') {
             for (let i = 0; i < skills.length; i++) {
                 if (event.target.textContent == skills[i].toUpperCase()) {
-                    event.target.textContent = skills[i]
+                    event.target.textContent = skills[i] 
                 }
             }
             event.target.style.opacity = 1
@@ -140,17 +136,20 @@ document.addEventListener('DOMContentLoaded', () => {
         newMessage.appendChild(editButton)
         newMessage.appendChild(doneButton)
 
-        messageList.appendChild(newMessage)
-
-
+        messageList.insertBefore(newMessage, messageList.firstChild)
+        
         //As li element was added the message section can be visible
         messageSection.style.display = 'inline-block'
-
+        
+        //update the storage with a newMessage
+        updateStorage(newMessage)
+        
         //Resert messageForm to make it clean again and ready for new input
         event.target.reset()
 
     })//end of messageForm eventListener
 
+  
     //add onclick event to the messageList to make the buttons interactive
     messageList.onclick = (event) => {
         if (event.target.tagName == "BUTTON") {
@@ -164,9 +163,20 @@ document.addEventListener('DOMContentLoaded', () => {
                 remove: () => {
                     //make the message section gone using traversal approach
                     if (entry.parentNode.children.length <= 1) {
+                        console.log(entry.parentNode.children.length)
                         messageSection.style.display = 'none'
                     }
+                    
+                    const index = getIndex(entry)
+                    
+                    storage = getDataFromLSorage()
+                    storage.splice(index, 1)
+                                       
+                    localStorage.removeItem('items')
+                    localStorage.setItem('items', JSON.stringify(storage))
+                   
                     entry.remove()
+                    
                 },//end of remove function 
 
                 edit: () => {
@@ -182,15 +192,30 @@ document.addEventListener('DOMContentLoaded', () => {
                 },//end of edit function
 
                 done: () => {
+                    
+                    const list = Array.from(messageList.querySelectorAll('li'))
+                    const index = getIndex(entry)
+                                        
+                    const editedMessage = list[index]
+                                                           
                     entry.querySelector('span').contentEditable = false;
                     entry.querySelector('span').style.background = 'none'
 
                     entry.querySelector('a').contentEditable = false;
                     entry.querySelector('a').style.background = 'none'
-
+                   
                     //Make the Done button disappear when finished with additing
                     button.style.visibility = 'hidden'
+
+                    storage = getDataFromLSorage()
+                    storage.splice(index, 1, editedMessage.innerHTML)
+                    
+                    localStorage.removeItem('items')
+                    localStorage.setItem('items', JSON.stringify(storage))
+                    
+                  
                 }//end of done function
+
             }
             //call the function from the object actions
             actions[action]()
@@ -207,7 +232,6 @@ const GITHUB_USERNAME = 'alenamedved'
 //Helper functions
 function handleRepoData(repositories) {
 
-    console.log(repositories)
     const projectSection = document.getElementById('projects')
     const projectList = projectSection.querySelector('ul')
     projectList.className = 'projectUl'

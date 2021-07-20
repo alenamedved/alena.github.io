@@ -23,7 +23,7 @@ const winnieSkills = [
 
 //Creat <p> Elements
 const copyright = document.createElement('p');
-let ageparagraph = document.createElement('p');
+const ageparagraph = document.createElement('p');
 
 //Calculate ageWinnie
 if (winnieDOB.getMonth() > thisMonth && thisYear == '2021') {
@@ -47,12 +47,14 @@ ageSection.appendChild(ageparagraph);
 copyright.innerHTML = `&copy; ${myName} ${thisYear} `
 footer.appendChild(copyright);
 
-//number of photos
+//number of photos to show
 const numOfPhotos = 5
+
 //select elements from the DOM
 let slidesConteiner = document.getElementsByClassName('slideshow-container')[0]
 let dots = document.getElementsByClassName('dots')[0]
 dots.style.textAlign = 'center'
+
 //fill the array with photos
 const winnieImg = []
 for (i = 1; i <= numOfPhotos; i++) {
@@ -60,9 +62,10 @@ for (i = 1; i <= numOfPhotos; i++) {
   winnieImg[i].src = `img/winniePhoto/${i}.jpg`
 
 };
+
 //fill out the DOM
-let slidesDiv = createDivSlide()
-let dotsDiv = createDots()
+const slidesDiv = createDivSlide()
+const dotsDiv = createDots()
 slidesConteiner.appendChild(addPrevArrow())
 slidesConteiner.appendChild(addNextArrow())
 
@@ -85,21 +88,17 @@ function createDivSlide() {
     let slides = document.createElement('div')
     let slideNum = document.createElement('div')
     let img = document.createElement('img')
-    let slideText = document.createElement('div')
 
     slides.className = 'mySlides fade'
-
     slideNum.className = 'numbertext'
     slideNum.innerHTML = `${i}/${numOfPhotos}`
 
     img = winnieImg[i]
     img.style.width = '100%'
 
-    slideText.class = 'text'
-
     slides.appendChild(slideNum)
     slides.appendChild(img)
-    slides.appendChild(slideText)
+
     slidesConteiner.appendChild(slides)
   }
   return slidesConteiner
@@ -154,3 +153,4 @@ function showSlides(n) {
   dots[slideIndex - 1].className += " active";
 
 }
+
