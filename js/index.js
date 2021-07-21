@@ -235,6 +235,7 @@ function handleRepoData(repositories) {
     const projectSection = document.getElementById('projects')
     const projectList = projectSection.querySelector('ul')
     projectList.className = 'projectUl'
+    
     repositories.forEach((repo, i) => {
         const project = document.createElement('li')
         const aTag = document.createElement('a')
