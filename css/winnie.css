@@ -12,9 +12,7 @@ body {
     margin: 10%;
     padding: 1em;
 }
-h1, 
-header p,
-#about {
+.center {
   text-align: center;
 }
 #connect ul {

@@ -18,13 +18,14 @@ function updateStorage(item) {
     localStorage['items'] = JSON.stringify(data)
 }
 
-
+//use this function to get index of the item that had an event
 function getIndex(item) {
     const list = Array.from(document.querySelectorAll('#messages li'))
     const index = list.indexOf(item)
     return index
 }
 
+//update message list with messages from the local storage
 function updateMessageList() {
     const recentMessageList = getDataFromLSorage()
     if(recentMessageList.length > 0) {
