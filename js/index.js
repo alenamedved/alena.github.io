@@ -7,6 +7,9 @@ document.addEventListener("DOMContentLoaded", () => {
   const messageList = messageSection.querySelector("ul");
   const skillsSection = document.getElementById("skills");
   const skillsList = skillsSection.querySelector("ul");
+  const educationalSecCodeTheDream = document.getElementsByClassName("education_item2")[0];
+  const certificate = document.getElementsByClassName("certificate")[0];
+  const educSectAll = document.getElementsByClassName("education_container")[0];
 
   //Create variables to use
   const myName = "Alena Miadzvedskaya";
@@ -114,6 +117,16 @@ document.addEventListener("DOMContentLoaded", () => {
       }
       event.target.style.opacity = 1;
     }
+  });
+  
+  //add certificat in place of CTD container
+  educationalSecCodeTheDream.addEventListener("mouseover", (event) => {
+    educationalSecCodeTheDream.style.display = "none";
+    certificate.style.display = "block";
+  });
+  educSectAll.addEventListener("mouseout", (event) => {
+    educationalSecCodeTheDream.style.display = "block";
+    certificate.style.display = "none";
   });
 
   //Working with Message Section: filling it in with messages from the users
