@@ -72,6 +72,36 @@ main.content {
     background-color: #97c2fa;
     justify-content: center;
 }
+.education_container {
+    background-color: #97c2fa;
+    display: flex;
+    flex-direction: row;
+    flex-flow: row wrap;
+    justify-content: space-evenly
+}
+.education_container a {
+    flex: 1;
+    height: auto;
+    text-decoration: none;
+    align-self: stretch;
+    color: inherit;
+}
+.education_item1,
+.education_item2 {
+    background-color: #fffc;
+    margin: 1rem;
+    padding: 20px;
+    text-align: center;
+    height: 80%;
+}
+
+.certificate {
+    display: none;
+    width: 100%;
+    height: 100%;
+    min-width: 300px;
+    
+}
 #experience {
     position: relative;
 }
@@ -155,9 +185,9 @@ h1.heading {
     order: -10;
 }   
 
-a[href^="http"]:visited {
+/* a[href^="http"]:visited {
     color:rgb(74, 99, 7);
-}
+} */
 
 fieldset {
     border-color: #f0ffff;
