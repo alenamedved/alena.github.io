@@ -120,13 +120,19 @@ document.addEventListener("DOMContentLoaded", () => {
   });
   
   //add certificat in place of CTD container
-  educationalSecCodeTheDream.addEventListener("mouseover", (event) => {
+  educationalSecCodeTheDream.addEventListener("mouseenter", (event) => {
     educationalSecCodeTheDream.style.display = "none";
-    certificate.style.display = "block";
+    educationalSecCodeTheDream.parentNode.style.backgroundImage = "url('img/certificate.png')"
+    educationalSecCodeTheDream.parentNode.style.backgroundPosition = 'center'
+    educationalSecCodeTheDream.parentNode.style.backgroundSize = 'contain'
+    educationalSecCodeTheDream.parentNode.style.backgroundRepeat = 'no-repeat'
+    
+    /* certificate.style.display = "block"; */
   });
-  educSectAll.addEventListener("mouseout", (event) => {
+  educSectAll.addEventListener("mouseleave", (event) => {
+    educationalSecCodeTheDream.parentNode.style.backgroundImage = "none"
     educationalSecCodeTheDream.style.display = "block";
-    certificate.style.display = "none";
+   /*  certificate.style.display = "none"; */
   });
 
   //Working with Message Section: filling it in with messages from the users

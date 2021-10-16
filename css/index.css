@@ -78,12 +78,18 @@ main.content {
     flex-direction: row;
     flex-flow: row wrap;
     justify-content: space-evenly
+
+  /*   display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: min 350px max 450px;
+    grid-gap: 15px;
+    grid-auto-columns: 1fr;
+    grid-auto-flow: column; */
 }
 .education_container a {
     flex: 1;
     height: auto;
     text-decoration: none;
-    align-self: stretch;
     color: inherit;
 }
 .education_item1,
@@ -93,14 +99,12 @@ main.content {
     padding: 20px;
     text-align: center;
     height: 80%;
+    
 }
-
 .certificate {
     display: none;
     width: 100%;
     height: 100%;
-    min-width: 300px;
-    
 }
 #experience {
     position: relative;
@@ -386,6 +390,9 @@ footer p {
     main.content {
         margin-left: 5px;
         margin-right: 5px;
+    }
+    .education_container {
+        flex-flow: column;
     }
     .flex-cont {
         flex-direction: column;
