@@ -17,6 +17,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const thisYear = today.getFullYear();
   const skills = [
     "JavaScript",
+    "React",
     "HTML",
     "CSS",
     "Git",
